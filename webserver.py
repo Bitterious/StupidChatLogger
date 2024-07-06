@@ -34,7 +34,7 @@ try:
 	STEAM_API_KEY = config["steam_api_key"]
 	SERVER_PORT = config["sv_port"]
 except Exception as e:
-	print("Invalid webserver.toml file. Regenerating. ERR:{}".format(e))
+	print("Invalid webserver.toml file. regenerating. ERR:{}".format(e))
 	if path.exists("webserver.toml"):
 		with open("webserver.toml.bak", "w") as f:
 			prev_f = open("webserver.toml", "r")
@@ -48,6 +48,7 @@ except Exception as e:
 		"owner": "your-id-here",
 		"sv_port": 1176,
 	}, open("webserver.toml", "bw"))
+	print("regenerated webserver config please restart the application.")
 	quit()
 
 

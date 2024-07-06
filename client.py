@@ -38,6 +38,7 @@ except Exception as e:
 		"sv_address": "http://localhost:1176",
 		"tf_dir": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Team Fortress 2\\"
 	}, open("client.toml", "bw"))
+	print("regenerated client config please restart the application.")
 	quit()
 
 #TODO: OPTIMIZE REGEXES

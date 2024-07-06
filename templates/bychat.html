@@ -1,0 +1,27 @@
+%pagestart = 20*(page-1)
+%pageend = 20*page
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>stupid chatlogger - search - {{txt}}</title>
+		% include('./includes/head_shared.tpl')
+	</head>
+	<body>
+		% include('./includes/title.tpl')
+		% include('./includes/search_box.tpl')
+        <br>
+        <div class="top-div">
+            <div>
+                <b><span class="username">Search: "{{txt}}"</span></b>
+            </div>
+        </div>
+        <br><br><br>
+		% include('./includes/chat_container.tpl')
+		<%
+		prevlink = "/c/{}/{}".format(otxt,page-1)
+		nextlink = "/c/{}/{}".format(otxt,page+1)
+		include('./includes/page_controller.tpl',plink=prevlink,nlink=nextlink,pdisable=(page-1)<=0,ndisable=page+1>totalpages)
+		%>
+		% include('./includes/footer.tpl')
+	</body>
+</html>

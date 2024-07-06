@@ -1,0 +1,6 @@
+data.db
+__pycache__
+webserver.toml
+webserver.toml.bak
+client.toml
+client.toml.bak

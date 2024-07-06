@@ -1,0 +1,39 @@
+<%
+pagestart = 20*(page-1)
+pageend = 20*page
+%>
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>stupid chatlogger - hosts - {{name}}</title>
+		% include('./includes/head_shared.tpl')
+	</head>
+	<body>
+		% include('./includes/title.tpl')
+		% include('./includes/search_box.tpl')
+		<h3 class="centered_header">Search hosts: {{name}}</h3>
+		<div class="table_container">
+			<table>
+				<tr>
+					<th>ip</th>
+					<th>hostname</th>
+				</tr>
+				<%for data in commits:
+					ip = data["ip"]
+					hostname = data["hostname"]
+					%>
+					<tr>
+						<td><b>{{ip}}</b></td>
+						<td>{{hostname}}</td>
+					</tr>
+				% end
+			</table>
+		</div>
+		<%
+		prevlink = "/h/{}/{}".format(oname,page-1)
+		nextlink = "/h/{}/{}".format(oname,page+1)
+		include('./includes/page_controller.tpl',plink=prevlink,nlink=nextlink,pdisable=(page-1)<=0,ndisable=page+1>totalpages)
+		%>
+		% include('./includes/footer.tpl')
+	</body>
+</html>

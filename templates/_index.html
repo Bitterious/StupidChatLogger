@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>stupid chatlogger - dev</title>
+		% include('./includes/head_shared.tpl')
+        <link rel="stylesheet" href="/static/dev.css">
+	</head>
+	<body>
+		% include('./includes/title.tpl')
+		% include('./includes/search_box.tpl')
+		<h3 class="centered_header">status panel</h3>
+        <div class="_dev_status_container">
+            <div>
+                <span>STEAM SESSION: Logged in as {{user_id}}</span><br>
+                <span>DATABASE: size({{db_bytes}} bytes) rows({{db_rows}})</span><br>
+                <span>LOAD: {{cpu_percent}}% cpu usage | {{load_avg}} load average | {{cpu_ghz}} mhz</span><br>
+                <span>RAM: {{free_ram}}% free | {{used_ram}}% used | {{used_ram_mb}}mb/{{total_ram_mb}}mb</span><br>
+                <span>CACHE: {{cache_size}} saved | {{cache_bytes}} bytes</span><br>
+            </div>
+        </div>
+		% include('./includes/footer.tpl')
+	</body>
+</html>

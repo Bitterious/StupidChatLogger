@@ -1,0 +1,42 @@
+<%
+pagestart = 20*(page-1)
+pageend = 20*page
+%>
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>stupid chatlogger - {{p_name}}</title>
+		% include('./includes/head_shared.tpl')
+	</head>
+	<body>
+		% include('./includes/title.tpl')
+		% include('./includes/search_box.tpl')
+		<h3 class="centered_header">Search username: {{p_name}}</h3>
+		<div class="table_container">
+			<table>
+				<tr>
+					<th>username</th>
+					<th>id</th>
+				</tr>
+				<%for data in commits:
+					uname = data["name"]
+					avatar = data["avatar"]
+					id = data["user_id"]
+					%>
+					<tr>
+						<td><img src="{{avatar}}" class="pfp  pfp_round">
+							<a href="/u/{{id}}/1" class="profilelink">{{uname}}</a>
+						</td>
+						<td>{{id}}</td>
+					</tr>
+				% end
+			</table>
+		</div>
+		<%
+		prevlink = "/n/{}/{}".format(name,page-1)
+		nextlink = "/n/{}/{}".format(name,page+1)
+		include('./includes/page_controller.tpl',plink=prevlink,nlink=nextlink,pdisable=(page-1)<=0,ndisable=page+1>totalpages)
+		%>
+		% include('./includes/footer.tpl')
+	</body>
+</html>

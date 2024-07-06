@@ -1,0 +1,28 @@
+%pagestart = 20*(page-1)
+%pageend = 20*page
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>stupid chatlogger - {{ip}}</title>
+		% include('./includes/head_shared.tpl')
+	</head>
+	<body>
+		% include('./includes/title.tpl')
+		% include('./includes/search_box.tpl')
+		<h3 class="centered_header">server</h3>
+        <div class="top-div">
+            <div>
+                <b><span class="username">{{ip}}</span></b>
+                <a href="steam://connect/{{ip}}"><img src="/static/steam_icon_white.png" alt="Steam Profile" class="steam-url"></a>
+            </div>
+        </div>
+        <br><br><br>
+		% include('./includes/chat_container.tpl')
+		<%
+		prevlink = "/s/{}/{}".format(oip,page-1)
+		nextlink = "/s/{}/{}".format(oip,page+1)
+		include('./includes/page_controller.tpl',plink=prevlink,nlink=nextlink,pdisable=(page-1)<=0,ndisable=page+1>totalpages)
+		%>
+		% include('./includes/footer.tpl')
+	</body>
+</html>

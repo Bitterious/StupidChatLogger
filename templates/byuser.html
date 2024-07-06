@@ -1,0 +1,34 @@
+<%
+pagestart = 20*(page-1)
+pageend = 20*page
+username = userdata["username"]
+userurl = userdata["userurl"]
+avatar = userdata["bigavatarurl"]
+%>
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>stupid chatlogger - {{username}}</title>
+		% include('./includes/head_shared.tpl')
+	</head>
+	<body>
+		% include('./includes/title.tpl')
+		% include('./includes/search_box.tpl')
+		<h3 class="centered_header">profile</h3>
+        <div class="top-div">
+            <img src="{{avatar}}" class="pfp_round pfp_big">
+            <div>
+                <b><span class="username">{{username}}</span></b>
+                <a href="{{userurl}}"><img src="/static/steam_icon_white.png" alt="Steam Profile" class="steam-url"></a>
+            </div>
+        </div>
+        <br><br><br>
+		% include('./includes/chat_container.tpl')
+		<%
+		prevlink = "/u/{}/{}".format(uid,page-1)
+		nextlink = "/u/{}/{}".format(uid,page+1)
+		include('./includes/page_controller.tpl',plink=prevlink,nlink=nextlink,pdisable=(page-1)<=0,ndisable=page+1>totalpages)
+		%>
+		% include('./includes/footer.tpl')
+	</body>
+</html>

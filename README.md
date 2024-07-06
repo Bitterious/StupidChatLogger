@@ -14,8 +14,10 @@
 - written by a dumbshit  
 - sometimes not stable  
 - uses an obscure fast ass fuck framework  
-- first loads are slow
-- bad ui (i dont know css)
+- first loads are slow  
+- bad ui (i dont know css)  
+## drop examples dumbass  
+try my own personal one [here](https://tf2logs.bittless.xyz)
 ## how to install tho?  
 1. clone or download this repository  
 2. install requirements  

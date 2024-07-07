@@ -8,7 +8,6 @@
 - has bunch of search options (map,server name,username etc.)  
 - takes virtually no space (100kb ~= 1000 messages)  
 - saves usernames incase profiles get removed (indicated by ⚠ next to username)  
-- doesnt require tf2 side configuration  
 - doesnt inject code to tf2 so not VAC bannable  
 ### cons  
 - written by a dumbshit  
@@ -22,13 +21,13 @@ try my own personal one [here](https://tf2logs.bittless.xyz)
 1. clone or download this repository  
 2. install requirements  
 
-`` on linux:``  
+``on linux:``  
 !! can only run the webserver!!
 ```bash
 pip install -r requirements-webserver.txt
 pip install -r requirements-webserver-posix.txt
 ```  
-`` on windows:``  
+``on windows:``  
 ```bash
 pip install -r requirements-client.txt
 pip install -r requirements-webserver.txt
@@ -37,6 +36,10 @@ pip install -r requirements-webserver-win32.txt
 and thats it  
 ## running this godawful code  
 !!!!! ONLY WINDOWS CAN RUN THE CLIENT I AM TOO LAZY TO MAKE IT ON LINUX !!!!!  
+>warning: you need to copy webserver.toml's client_key to client.toml's commit_key after first run  
+
+>another warning: you need to put ``-condebug`` to your tf2 launch options
+
 ``python wrapper.py`` (windows only) runs both client and webserver  
 ``python client.py`` (windows only) runs just the client (preferred when you already have a server running)  
 ``python webserver.py`` runs just the webserver. webserver holds all the data so its required for client to function  
